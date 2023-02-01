@@ -4,6 +4,9 @@ using WebApplication1.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddRazorPages()
+    .AddRazorRuntimeCompilation();
+
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<AppDbContext>(options =>
