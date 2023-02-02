@@ -1,5 +1,10 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using WebApplication1.BL.Employee;
+using WebApplication1.BL.Employee.Impl;
+using WebApplication1.Dao.Employee;
+using WebApplication1.Dao.Employee.Impl;
+using WebApplication1.Dao.System;
 using WebApplication1.Data;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,6 +17,10 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+
+builder.Services.AddScoped(typeof(ICrudDao<>), typeof(ACrudDao<>));
+builder.Services.AddScoped<IEmployeeDao, EmployeeDao>();
+builder.Services.AddScoped<IEmployeeService, EmployeeService>();
 
 builder.Services.AddIdentity<IdentityUser, IdentityRole>()
     .AddEntityFrameworkStores<AppDbContext>();
