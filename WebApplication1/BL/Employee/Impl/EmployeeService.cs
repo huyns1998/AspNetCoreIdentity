@@ -18,5 +18,20 @@ namespace WebApplication1.BL.Employee.Impl
         {
             return await employeeDao.Add(em);
         }
+
+        public async Task<Data.Employee> GetById(int Id)
+        {
+            return await employeeDao.GetById(Id);   
+        }
+
+        public async Task<Data.Employee> Update(Data.Employee em)
+        {
+            return await employeeDao.Update(em);    
+        }
+
+        public Task<Data.Employee> Delete(int Id)
+        {
+            return employeeDao.Delete(Id);  
+        }
     }
 }

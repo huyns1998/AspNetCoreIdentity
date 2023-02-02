@@ -27,15 +27,12 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
-                        @if (signInManager.IsSignedIn(User))
-                        {
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Employee" asp-action="Index">Employee</a>
-                            </li>
-                        }
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Employee" asp-action="Index">Employee</a>
+                        </li>   
                     </ul>
                     <ul class="navbar-nav">
-                        @if(signInManager.IsSignedIn(User))
+                        @if (signInManager.IsSignedIn(User))
                         {
                             <form method="post" asp-action="logout" asp-controller="account">
                                 <button type="submit" class="btn btn-danger">Logout @User.Identity.Name</button>

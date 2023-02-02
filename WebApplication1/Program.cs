@@ -1,4 +1,6 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
 using WebApplication1.BL.Employee;
 using WebApplication1.BL.Employee.Impl;
@@ -34,7 +36,13 @@ builder.Services.Configure<IdentityOptions>(opt =>
 });
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews(
+    opt =>
+    {
+        var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
+        opt.Filters.Add(new AuthorizeFilter(policy));
+    }
+    );
 
 
 var app = builder.Build();
@@ -52,7 +60,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseAuthentication();    
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
