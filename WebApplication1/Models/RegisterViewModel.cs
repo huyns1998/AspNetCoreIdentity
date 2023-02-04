@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel.DataAnnotations;
 using System.Xml.Linq;
 
 namespace WebApplication1.Models
@@ -7,6 +8,7 @@ namespace WebApplication1.Models
     {
         [Required]
         [EmailAddress]
+        [Remote(action: "IsEmailInUse", controller:"Account")]
         public string Email { get; set; }
 
         [Required]
