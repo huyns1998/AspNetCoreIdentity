@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32922.545
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication1", "WebApplication1\WebApplication1.csproj", "{8D63501A-564D-4928-97E7-BAF179BD7E0A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplication1", "WebApplication1\WebApplication1.csproj", "{8D63501A-564D-4928-97E7-BAF179BD7E0A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FakeLogin", "FakeLogin\FakeLogin.csproj", "{F56F1D56-117A-4FE8-8627-8A7F5D5F3DAE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{8D63501A-564D-4928-97E7-BAF179BD7E0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D63501A-564D-4928-97E7-BAF179BD7E0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D63501A-564D-4928-97E7-BAF179BD7E0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F56F1D56-117A-4FE8-8627-8A7F5D5F3DAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F56F1D56-117A-4FE8-8627-8A7F5D5F3DAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F56F1D56-117A-4FE8-8627-8A7F5D5F3DAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F56F1D56-117A-4FE8-8627-8A7F5D5F3DAE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
