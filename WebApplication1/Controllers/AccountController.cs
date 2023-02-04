@@ -89,5 +89,20 @@ namespace WebApplication1.Controllers
             }
             return View(model);
         }
+        [AcceptVerbs("Get", "Post")]
+        [AllowAnonymous]
+        public async Task<IActionResult> IsEmailInUse(string email)
+        {
+            var user = await userMananger.FindByEmailAsync(email);  
+
+            if(user == null)
+            {
+                return Json(true);
+            }
+            else
+            {
+                return Json($"Email {email} is already in use");
+            }
+        }
     }
 }
