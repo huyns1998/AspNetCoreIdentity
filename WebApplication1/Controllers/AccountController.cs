@@ -77,8 +77,8 @@ namespace WebApplication1.Controllers
                 {
                     if (!string.IsNullOrEmpty(returnUrl) /*&& Url.IsLocalUrl(returnUrl)*/)
                     {
-                        //return Redirect(returnUrl); 
-                        return LocalRedirect(returnUrl);
+                        return Redirect(returnUrl); 
+                        //return LocalRedirect(returnUrl);
                     }
                     return RedirectToAction("index", "home");
                 }
