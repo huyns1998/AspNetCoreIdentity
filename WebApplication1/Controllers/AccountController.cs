@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using WebApplication1.Data;
 using WebApplication1.Models;
 using SignInResult = Microsoft.AspNetCore.Identity.SignInResult;
 
@@ -8,10 +9,10 @@ namespace WebApplication1.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly UserManager<IdentityUser> userMananger;
-        private readonly SignInManager<IdentityUser> signInManager;
+        private readonly UserManager<ApplicationUser> userMananger;
+        private readonly SignInManager<ApplicationUser> signInManager;
 
-        public AccountController(UserManager<IdentityUser> userMananger, SignInManager<IdentityUser> signInManager)
+        public AccountController(UserManager<ApplicationUser> userMananger, SignInManager<ApplicationUser> signInManager)
         {
             this.userMananger = userMananger;
             this.signInManager = signInManager;
@@ -30,10 +31,11 @@ namespace WebApplication1.Controllers
         {
             if (ModelState.IsValid)
             {
-                IdentityUser user = new IdentityUser()
+                ApplicationUser user = new ApplicationUser()
                 {
                     UserName = model.Email,
                     Email = model.Email,
+                    City= model.City
                 };
 
                 IdentityResult result = await userMananger.CreateAsync(user, model.Password);
