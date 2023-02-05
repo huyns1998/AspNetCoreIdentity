@@ -24,7 +24,7 @@ builder.Services.AddScoped(typeof(ICrudDao<>), typeof(ACrudDao<>));
 builder.Services.AddScoped<IEmployeeDao, EmployeeDao>();
 builder.Services.AddScoped<IEmployeeService, EmployeeService>();
 
-builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
     .AddEntityFrameworkStores<AppDbContext>();
 
 builder.Services.Configure<IdentityOptions>(opt =>
